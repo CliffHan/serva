@@ -39,3 +39,11 @@ tower-http = { version = "0.3", features = ["full"] }
 [build-dependencies]
 const_format = "0.2"
 tonic-build = { version = "0.7", features = ["prost"] }
+
+# refer to https://github.com/johnthagen/min-sized-rust
+[profile.release]
+opt-level = 'z'     # Optimize for size.
+lto = true          # Enable Link Time Optimization
+codegen-units = 1   # Reduce number of codegen units to increase optimizations.
+panic = 'abort'     # Abort on panic
+strip = true        # Strip symbols from binary*

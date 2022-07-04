@@ -34,7 +34,7 @@ fn main() {
         println!("cargo:warning={}", "skipped build process of webapp");
         return;
     }
-    
+
     // build generate js
     println!("cargo:rerun-if-changed=proto");
     let _ = remove_dir_all(JS_GEN_DIR);
